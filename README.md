@@ -1,0 +1,4 @@
+nixconfig
+=========
+
+Personal *nix config 
