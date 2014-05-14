@@ -1,0 +1,14 @@
+# 启动时不显示欢迎屏幕
+startup_message on                                                            
+
+hardstatus on                                                                 
+vbell off
+
+caption always "%?%F%{-b 4w}%?%L=%-Lw%45>%{-b w4}%n%f* %t%{-}%+Lw%-0<"        
+
+
+bindkey -k F2 command                                                         
+bindkey -k k6 windowlist -m                                                   
+bindkey -k k7 windowlist -b                                                   
+bindkey -k k8 prev                                                            
+bindkey -k k9 next
