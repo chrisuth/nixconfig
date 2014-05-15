@@ -1,0 +1,210 @@
+set termencoding=utf-8
+set fileencodings=utf-8,gb2312,gbk,ucs-bom,cp936
+set encoding=utf-8
+
+"---------- FencView --------------
+" set fencview to detect encoding of every file
+let g:fencview_autodetect=1
+
+set nobackup            " do not keep a backup file, use versions instead
+set history=50          " keep 50 lines of command line history
+set ruler               " show the cursor position all the time
+set showcmd             " display incomplete commands
+set number
+set incsearch           " do incremental searching
+set hlsearch
+set fileformat=unix
+"set textwidth=78
+set formatoptions+=mM
+set autoindent          " always set autoindenting on
+set splitbelow
+set mouse=
+botright cwindow
+" Don't use Ex mode, use Q for formatting
+map Q gq
+syntax on
+syntax enable
+filetype on
+filetype indent on
+filetype plugin on
+
+set smartindent
+set wrap
+set makeprg=make
+set guifont=Courier\ 14
+"set guifont=Courier\ 10\ Pitch 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set foldmethod=syntax
+set foldmethod=indent
+set foldlevel=100
+
+set guioptions-=T
+set guioptions-=m
+set so=4
+set showmatch
+set backspace=indent,eol,start
+set ic
+
+set laststatus=2
+map <C-b> :bprev!<CR>
+map <C-n> :bnext!<CR>
+
+let mapleader = ","
+
+" ejs as html file 
+au BufRead,BufNewFile *.ejs setfiletype html
+
+" color
+colorscheme hgw
+
+" insert '#' in first pos of the line
+map <C-j> 0r#<ESC>j
+map <C-i> 0i#<ESC>j
+
+" hilight cursor line and cursor column
+set cursorline
+"set cursorcolumn
+"hi cursorline   cterm=none ctermbg=grey
+"hi cursorcolumn cterm=none ctermbg=darkgrey
+set colorcolumn=81
+hi colorcolumn ctermbg=grey
+
+" 恢复到文件上次编辑位置
+:au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |
+            \ exe "normal g'\"" | endif
+
+" vim-powerline 
+"powerline{
+"set guifont=PowerlineSymbols\ for\ Powerline
+"set nocompatible
+"sset t_Co=256
+"slet g:Powerline_symbols = 'fancy'
+"slet g:Powerline_dividers_override = ['>>', '>', '<<', '<']
+"}
+
+" NERDTRee
+let NERDChristmasTree=1
+let NERDTreeAutoCenter=1
+let NERDTreeWinPos='right'
+let NERDTreeQuitOnOpen=1
+let NERDTreeDirArrows=0
+let NERDTreeIgnore=['tags','.d$[[dir]]', '.o$[[file]]', '^cscope\.[[file]]']
+
+map <C-f> :NERDTreeToggle<CR>
+
+" bufpos buftab statusline
+let g:buftabs_in_statusline=1  
+let g:buftabs_only_basename=1
+
+" tagbar
+nmap <Leader>tb :TagbarToggle<CR>
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+let g:tagbar_width=30
+let g:tagbar_left = 1
+" for golang
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+
+" mru 
+nmap <Leader>mru :MRU<cr>
+
+
+" indent guides 
+" nmap <silent><unique> <Leader>ig <Plug>IndentGuidesToggle
+let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_color_change_percent = 100
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=cyan
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=2
+
+" indentLine
+let g:indentLine_enabled = 1
+let g:indentLine_noConcealCursor = 1
+let g:indentLine_color_term = 77
+let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
+nmap <silent><unique> <Leader>ig :IndentLinesToggle<CR>
+
+
+" ctag
+nmap <silent><unique> <Leader>tag :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+" :ts 显示全部tag
+" 增加非当前目录的tags
+set tags+=$HOME/.ctags_tags/alltags
+
+" cscope
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+nmap <Leader>csb :!cscope -Rbq<CR><CR>:cs add cscope.out<CR>
+nmap <Leader>csa :cs add cscope.out<CR>
+"csg : find ind this definition ... 
+nmap <Leader>csg :cs find g <C-R>=expand("<cword>")<CR><CR>
+"csc : find functions calling this function
+nmap <Leader>csc :cs find c <C-R>=expand("<cword>")<CR><CR>
+"nmap <Leader>cst :cs find t <C-R>=expand("<cword>")<CR><CR>
+"nmap <Leader>cse :cs find e <C-R>=expand("<cword>")<CR><CR>
+"nmap <Leader>csf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+"nmap <Leader>csi :cs find i^ <C-R>=expand("<cfile>")<CR>$<CR>
+"nmap <Leader>csd :cs find d <C-R>=expand("<cword>")<CR><CR>
+"
+" tabular                                                                        
+nmap <silent><unique> <Leader>aa :Tab /<C-R>=expand("<cword>")<CR><CR>          
+" align by =                                                                     
+nmap <silent><unique> <Leader>al= :Tab /=<CR><CR>  
+
+"fuzzyfinder
+function! GetAllCommands()
+    redir => commands
+    silent command
+    redir END
+    return map((split(commands, "\n")[3:]),
+                \      '":" . matchstr(v:val, ''^....\zs\S*'')')
+endfunction
+nmap <Leader>ff :call fuf#givencmd#launch('', 0, '选择命令>', GetAllCommands())<CR>
+
+" syntastic
+let g:syntastic_check_on_open=0
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_c_compiler = 'clang'
+let g:syntastic_auto_jump=1
+let g:syntastic_always_populate_loc_list=1
+nmap <Leader>sc :SyntasticCheck<CR>
+
+" Rainbow Parentheses
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 1
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadBraces
+au VimEnter * cal rainbow_parentheses#activate()
+au BufEnter * cal rainbow_parentheses#activate()
+
+

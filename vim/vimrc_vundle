@@ -1,0 +1,83 @@
+" For vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+" -----------------------------------------------------------------------------
+" vim-scripts repos
+" Bundle 'bash-support.vim'
+Bundle 'FencView.vim'
+" Bundle 'calendar.vim'
+Bundle 'bufpos'
+Bundle 'L9'
+Bundle 'echofunc.vim'
+Bundle 'grep.vim'
+Bundle 'indentLine.vim'
+" Bundle 'mru.vim'
+" Bundle 'The-NERD-Commenter'
+" Bundle 'DoxygenToolkit.vim'
+Bundle 'The-NERD-tree'
+Bundle 'Tabular'
+Bundle 'Tagbar'
+Bundle 'TagHighlight'
+" Bundle 'FuzzyFinder'
+Bundle 'Syntastic'
+Bundle 'rainbow_parentheses.vim'
+Bundle 'a.vim'
+" Bundle 'DrawIt'
+" Bundle 'OmniCppComplete'
+Bundle 'clang-complete'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'SuperTab'
+" Bundle 'XPstatusline'
+Bundle 'ctrlp.vim'
+Bundle 'undx/vim-gocode'
+Bundle 'EasyMotion'
+"Tab completion of words inside of a search ('/')
+Bundle 'SearchComplete'
+" :BD to kill a buffer but do not close the window
+Bundle 'bufkill.vim'
+Bundle 'Markdown-syntax'
+" Bundle 'Markdown'
+"
+"
+"
+" -----------------------------------------------------------------------------
+set runtimepath+=$HOME/.vim_common
+source ~/.vimrc_common
+
+" YouCompleteMe
+" let g:ycm_global_ycm_extra_conf = "~/.vim/conf/ycm_extra_conf.py"
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_filetype_blacklist = {
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'text' : 1,
+      \ 'unite' : 1,
+      \ 'cpp' : 1,
+      \ 'c' : 1, 
+      \}
+
+" ctrlp
+" 0 - top
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_max_height = 40
+let g:ctrlp_mruf_max = 50
+" 查找文件
+nmap <Leader>ccf :CtrlP<cr>
+" 在tags文件中查找
+nmap <Leader>cct :CtrlPTag<cr>
+" mru文件
+nmap <Leader>ccm :CtrlPMRUFiles<cr>
+" buffer
+nmap <Leader>ccb :CtrlPBuffer<cr>
+
+" go lang
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
