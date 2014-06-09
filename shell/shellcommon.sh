@@ -59,6 +59,7 @@ if [ -d $HOME/.jumbo/ ];then
     C_INCLUDE_PATH="$C_INCLUDE_PATH:$JUMBO_ROOT/include"
     LIBRARY_PATH="$LIBRARY_PATH:$JUMBO_ROOT/lib"
 
+    PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$JUMBO_ROOT/lib/pkgconfig"
 fi
 
 if [ -d /home/tools/tools/scmtools/usr/bin ];then
