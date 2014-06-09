@@ -41,11 +41,13 @@ LC_ALL=
 # C_INCLUDE_PATH & CPLUS_INCLUDE_PATH
 # LIBRARY_PATH & LD_LIBRARY_PATH
 # PATH
+# PKG_CONFIG_PATH
 # 
 # ------ 首先,肯定是我自己编译安装的目录 ------
 PATH="$HOME/usr/bin"
 C_INCLUDE_PATH="$HOME/usr/include"
 LIBRARY_PATH="$HOME/usr/lib"
+PKG_CONFIG_PATH="$HOME/usr/lib/pkgconfig:$HOME/usr/local/lib/pkgconfig"
 
 # ------ 特殊其它目录 ------
 if [ -d $HOME/.jumbo/ ];then
@@ -70,6 +72,9 @@ C_INCLUDE_PATH="$C_INCLUDE_PATH:/usr/include"
 
 LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 LIBRARY_PATH="$LIBRARY_PATH:/usr/lib"
+
+PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/lib/pkgconfig"
+PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig"
 
 PATH="$PATH:/usr/local/bin"
 PATH="$PATH:/usr/bin"
