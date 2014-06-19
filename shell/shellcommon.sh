@@ -137,3 +137,13 @@ if [ -d $GO_WORKSPACE ];then
 fi
 unset GO_WORKSPACE
 
+# ===========================================
+# java lang env
+if [ -d $HOME/opt/jdk ];then
+    JAVA_HOME=$HOME/opt/jdk
+    export JAVA_HOME
+    export PATH=$JAVA_HOME/bin:$PATH
+    export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 
+fi
+
+
