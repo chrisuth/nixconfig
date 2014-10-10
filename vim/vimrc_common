@@ -151,6 +151,7 @@ let g:indentLine_enabled = 1
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 77
 let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
+set list lcs=tab:\¦\ 
 nmap <silent><unique> <Leader>ig :IndentLinesToggle<CR>
 
 
