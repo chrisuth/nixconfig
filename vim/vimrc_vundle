@@ -1,46 +1,46 @@
 " For vundle
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/vundle'
 " -----------------------------------------------------------------------------
 " vim-scripts repos
-" Bundle 'bash-support.vim'
-Bundle 'FencView.vim'
-" Bundle 'calendar.vim'
-Bundle 'bufpos'
-Bundle 'L9'
-Bundle 'echofunc.vim'
-Bundle 'grep.vim'
-Bundle 'indentLine.vim'
-" Bundle 'mru.vim'
-" Bundle 'The-NERD-Commenter'
-" Bundle 'DoxygenToolkit.vim'
-Bundle 'The-NERD-tree'
-Bundle 'Tabular'
-Bundle 'Tagbar'
-Bundle 'TagHighlight'
-" Bundle 'FuzzyFinder'
-Bundle 'Syntastic'
-Bundle 'rainbow_parentheses.vim'
-Bundle 'a.vim'
-" Bundle 'DrawIt'
-" Bundle 'OmniCppComplete'
-Bundle 'clang-complete'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SuperTab'
-" Bundle 'XPstatusline'
-Bundle 'ctrlp.vim'
-Bundle 'undx/vim-gocode'
-Bundle 'EasyMotion'
+" Plugin 'bash-support.vim'
+Plugin 'FencView.vim'
+" Plugin 'calendar.vim'
+Plugin 'bufpos'
+Plugin 'L9'
+Plugin 'echofunc.vim'
+Plugin 'grep.vim'
+Plugin 'indentLine.vim'
+" Plugin 'mru.vim'
+" Plugin 'The-NERD-Commenter'
+" Plugin 'DoxygenToolkit.vim'
+Plugin 'The-NERD-tree'
+Plugin 'Tabular'
+Plugin 'Tagbar'
+Plugin 'TagHighlight'
+" Plugin 'FuzzyFinder'
+Plugin 'Syntastic'
+Plugin 'rainbow_parentheses.vim'
+Plugin 'a.vim'
+" Plugin 'DrawIt'
+" Plugin 'OmniCppComplete'
+Plugin 'clang-complete'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SuperTab'
+" Plugin 'XPstatusline'
+Plugin 'ctrlp.vim'
+Plugin 'undx/vim-gocode'
+Plugin 'EasyMotion'
 "Tab completion of words inside of a search ('/')
-Bundle 'SearchComplete'
+Plugin 'SearchComplete'
 " :BD to kill a buffer but do not close the window
-Bundle 'bufkill.vim'
-Bundle 'Markdown-syntax'
-" Bundle 'Markdown'
-"
+Plugin 'bufkill.vim'
+Plugin 'Markdown-syntax'
+" Plugin 'Markdown'
+call vundle#end()
 "
 "
 " -----------------------------------------------------------------------------

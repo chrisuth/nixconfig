@@ -55,3 +55,4 @@ ln -s -f $PWD/vimrc_common $HOME/.vimrc_common
 ln -s -F $PWD/vim_vundle $HOME/.vim
 ln -s -F $PWD/vim_common $HOME/.vim_common
 
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
