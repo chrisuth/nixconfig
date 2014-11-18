@@ -33,6 +33,7 @@ Plugin 'SuperTab'
 " Plugin 'XPstatusline'
 Plugin 'ctrlp.vim'
 Plugin 'undx/vim-gocode'
+Plugin 'Python-mode-klen'
 Plugin 'EasyMotion'
 "Tab completion of words inside of a search ('/')
 Plugin 'SearchComplete'
@@ -59,6 +60,7 @@ let g:ycm_filetype_blacklist = {
       \ 'text' : 1,
       \ 'unite' : 1,
       \}
+
 
 " ctrlp
 " 0 - top

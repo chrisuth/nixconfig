@@ -8,3 +8,7 @@ setlocal noexpandtab
 " Automatically format Go code on save
 autocmd BufWritePre *.go Fmt
 
+" auto format code
+nmap <Leader>ff :Fmt<CR>
+
+
